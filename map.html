@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Untree.co">
+    <link rel="shortcut icon" href="favicon.png">
+  
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    
+  
+    <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600, 700,900|Oswald:400,700" rel="stylesheet">
+  
+  
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+  
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="css/jquery-ui.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  
+    <link rel="stylesheet" href="css/aos.css">
+    <link rel="stylesheet" href="css/fancybox.min.css">
+  
+    <link rel="stylesheet" href="css/style.css">
+    <title>API 데이터 표시</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+
+<!-- /* <----------------------(1) 옆 카테고리 목록--------------------->
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="200">
+  <div class="site-wrap">
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    <header class="header-bar d-flex d-lg-block align-items-center site-navbar-target" data-aos="fade-right">
+      <div class="site-logo">
+        <a href="index.html">index 목차 이름 바꾸기 왼쪽 상단</a>
+      </div>
+
+      <div class="d-inline-block d-lg-none ml-md-0 ml-auto py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle "><span class="icon-menu h3"></span></a></div>
+
+      <div class="main-menu">
+        <ul class="js-clone-nav">
+          <li><a href="section_home.html" class="nav-link">Home</a></li>
+          <li><a href="#section-photos" class="nav-link">Photos</a></li>
+          <li><a href="map.html" class="nav-link">지도 보여주기</a></li>
+          <li><a href="#section-testimonial" class="nav-link">ADD 카테고리 이름 보이지롱</a></li>
+          <li><a href="#section-blog" class="nav-link">Blog</a></li>
+          <li><a href="#section-contact" class="nav-link">Contact</a></li>
+          <li><a href="VaccineInfo.html" class="nav-link">예방접종 정보</a></li>
+        </ul>
+        <ul class="social js-clone-nav">
+          <li><a href="#"><span class="icon-instagram"></span></a></li>
+          <li><a href="#"><span class="icon-facebook"></span></a></li>
+          <li><a href="#"><span class="icon-twitter"></span></a></li>
+          <li><a href="#"><span class="icon-linkedin"></span></a></li>
+        </ul>
+      </div>
+    </header> 
+<!---------------------------------- 지도 select box---------------------------->
+<main class="main-content">
+    <h1>지도 생성하기</h1>
+    <div id="map" style="margin-left: auto; margin-right: auto; width: 80%; height: 500px"></div>
+    <h1>API 데이터 표시</h1>
+
+    <label for="zone" class="select__area">도/특별시/광역시:</label>
+    <select id="area" class="select__box" >
+      <option value=""> 전체 </option>
+      <option value="서울특별시">서울특별시</option>
+      <option value="인천광역시">인천광역시</option>
+      <option value="경기도">경기도</option>
+      <option value="세종특별자치시">세종특별자치시</option>
+      <option value="울산광역시">울산광역시</option>
+      <option value="강원특별자치도">강원특별자치도</option>
+      <option value="경상북도">경상북도</option>
+      <option value="경상남도">경상남도</option>
+      <option value="부산광역시">부산광역시</option>
+      <option value="광주광역시">광주광역시</option>
+      <option value="충청북도">충청북도</option>
+      <option value="대구광역시">충청남도</option>
+      <option value="전라남도">전라남도</option>
+      <option value="전라북도">전라북도</option>
+      <option value="제주특별자치도">제주특별자치도</option>
+      <option value="대구광역시">대구광역시</option>
+      <option value="대전광역시">대전광역시</option>
+    </select>
+    <table id="data-table" style="margin-left: auto; margin-right: auto; width: 80%; height: 500px"></table>
+  </div>
+</main>
+
+<!---------------------------------- 지도 스트립트 ---------------------------->
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2b83bec8eee175b6f2e2ba77e5cc562e&libraries=services,clusterer,drawing"
+    ></script>
+    <script src="js\try.js"></script>
+    <script>
+      window.onload = function () {
+        initMap();
+        var items = document.getElementsByClassName("item");
+        for (var i = 0; i < items.length; i++) {
+          items[i].addEventListener("click", function () {
+            handleItemClick(this.dataset);
+          });
+        }
+      };
+    </script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/jquery.countdown.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/aos.js"></script>
+    <script src="js/lozad.min.js"></script>
+    <script src="js/vaccin.js"></script>
+  
+    <script src="js/jquery.fancybox.min.js"></script>
+  
+    <script src="js/main.js"></script>
+  </body>
+</html>
+
+<!-- 
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>지도 표시</title>
+    <style>
+      #map {
+        width: 500px;
+        height: 400px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>지도</h1>
+    <div id="map"></div>
+
+    <h1>동물병원 목록</h1>
+    <table id="data-table">
+      <tr>
+        <th>사업장명</th>
+        <th>소재지전체주소</th>
+        <th>소재지전화</th>
+        <th>영업상태명</th>
+      </tr>
+    </table>
+
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2b83bec8eee175b6f2e2ba77e5cc562e&libraries=services,clusterer,drawing"
+    ></script>
+    <script src="try.js"></script>
+    <script>
+      // HTML 로드가 완료된 후 실행되는 함수
+      window.onload = function () {
+        // 지도 초기화
+        initMap();
+
+        // 사업장명 클릭 이벤트 등록
+        var items = document.getElementsByClassName("item");
+        for (var i = 0; i < items.length; i++) {
+          items[i].addEventListener("click", function () {
+            handleItemClick(this.dataset);
+          });
+        }
+      };
+    </script>
+  </body>
+</html> -->

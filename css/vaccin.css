@@ -1,0 +1,97 @@
+/* <----------------------(1) index.html css---------------------> */
+#map {
+    height: 500px;
+    width: 800px;
+}
+
+/* <----------------------(1) index.html 끝---------------------> */
+
+/* <----------------------(2) 예방접종 인포 html.css---------------------> */
+/* 전체 창에 대한 가운데 정렬 */
+.animal_container{
+    text-align: center;
+}
+
+/* 표에 대한 css */
+.batman {
+    background-color: #d7d9f2;
+}
+
+.flash {
+    background-color: #ffe8d4;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid rgb(100, 100, 100);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: 0.7rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td,
+th {
+    border: 1px solid rgb(100, 100, 100);
+    padding: 10px 10px;
+}
+
+td {
+    text-align: center;
+}
+
+/* 라디오 버튼에 대한 css */
+.Radio_BTN{
+    margin-top: 20px;
+}
+
+/* 개월 수 계산 버튼 스타일*/
+  .btn {
+    border: none;
+    display: block;
+    text-align: center;
+    cursor: pointer;
+    text-transform: uppercase;
+    outline: none;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+    font-weight: 700;
+    font-size: 15px;
+    background-color: #222;
+    padding: 17px 60px;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+  }
+  
+  .btn span {
+    position: relative; 
+    z-index: 1;
+  }
+  
+  .btn:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 490%;
+    width: 140%;
+    background: #78c7d2;
+    -webkit-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    -webkit-transform: translateX(-98%) translateY(-25%) rotate(45deg);
+    transform: translateX(-98%) translateY(-25%) rotate(45deg);
+  }
+  
+  .btn:hover:after {
+    -webkit-transform: translateX(-9%) translateY(-25%) rotate(45deg);
+    transform: translateX(-9%) translateY(-25%) rotate(45deg);
+  }
+  
+
+  .btn-clicked {
+    background-color: #78c7d2;
+    color: #fff;
+  }
+/* <----------------------(2) 예방접종 인포 html.css 끝---------------------> */
