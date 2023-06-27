@@ -30,6 +30,7 @@
   
     <link rel="stylesheet" href="css/style.css">
     <title>API 데이터 표시</title>
+    <!-- /* <----------------------지도 스타일-------------------->
     <style>
       table {
         border-collapse: collapse;
@@ -71,7 +72,7 @@
         <ul class="js-clone-nav">
           <li><a href="section_home.html" class="nav-link">Home</a></li>
           <li><a href="#section-photos" class="nav-link">Photos</a></li>
-          <li><a href="map.html" class="nav-link">지도 보여주기</a></li>
+          <li><a href="map.html" class="nav-link">지도</a></li>
           <li><a href="#section-testimonial" class="nav-link">ADD 카테고리 이름 보이지롱</a></li>
           <li><a href="#section-blog" class="nav-link">Blog</a></li>
           <li><a href="login.html" class="nav-link">Login</a></li>
@@ -153,54 +154,3 @@
     <script src="js/main.js"></script>
   </body>
 </html>
-
-<!-- 
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>지도 표시</title>
-    <style>
-      #map {
-        width: 500px;
-        height: 400px;
-      }
-    </style>
-  </head>
-
-  <body>
-    <h1>지도</h1>
-    <div id="map"></div>
-
-    <h1>동물병원 목록</h1>
-    <table id="data-table">
-      <tr>
-        <th>사업장명</th>
-        <th>소재지전체주소</th>
-        <th>소재지전화</th>
-        <th>영업상태명</th>
-      </tr>
-    </table>
-
-    <script
-      type="text/javascript"
-      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2b83bec8eee175b6f2e2ba77e5cc562e&libraries=services,clusterer,drawing"
-    ></script>
-    <script src="try.js"></script>
-    <script>
-      // HTML 로드가 완료된 후 실행되는 함수
-      window.onload = function () {
-        // 지도 초기화
-        initMap();
-
-        // 사업장명 클릭 이벤트 등록
-        var items = document.getElementsByClassName("item");
-        for (var i = 0; i < items.length; i++) {
-          items[i].addEventListener("click", function () {
-            handleItemClick(this.dataset);
-          });
-        }
-      };
-    </script>
-  </body>
-</html> -->
