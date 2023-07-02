@@ -57,24 +57,44 @@
             <li><a href="map.html" class="nav-link">지도</a></li>
             <li><a href="#section-testimonial" class="nav-link">ADD 카테고리 이름 보이지롱</a></li>
             <li><a href="#section-blog" class="nav-link">Blog</a></li>
-            <li><a href="login.html" class="nav-link">Login</a></li>
+            <li><a href="getMember.html" class="nav-link">회원가입</a></li>
             <li><a href="VaccineInfo.html" class="nav-link">예방접종 정보</a></li>
-          </ul>
-          <ul class="social js-clone-nav">
-            <li><a href="#"><span class="icon-instagram"></span></a></li>
-            <li><a href="#"><span class="icon-facebook"></span></a></li>
-            <li><a href="#"><span class="icon-twitter"></span></a></li>
-            <li><a href="#"><span class="icon-linkedin"></span></a></li>
           </ul>
         </div>
       </header> 
-    <!-- ---------------------(1) 옆 카테고리 목록 끝--------------------->
-    <!-- ---------------------(2) 로그인 페이지--------------------------->
+    <!-- ---------------------(1) 옆 카테고리 목록 끝----------------------->
+    <!-- ---------------------(2) 오른쪽 큰 페이지--------------------------->
     <section class="site-section" id="section-contact">
         <div class="container">
           <div class="row justify-content-center">
+            <!---------------------로그인하기 ------------------->
             <div class="col-md-8">
-              <h2 class=" mb-5 heading">Login</h2>
+              <h2 class=" mb-5 heading">로그인</h2>
+              <form action="#">
+                <div class="row form-group">
+
+                  <div class="col-md-12">
+                    <label class="" for="signInEmail">Email</label> 
+                    <input type="email" id="signInEmail" class="form-control">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="" for="signInPassword">password</label> 
+                    <input type="password" id="signInPassword" class="form-control">
+                  </div>
+                </div>
+
+                <div class="row form-group">
+                  <div class="col-md-12">
+                    <input type="submit" id="signInButton" value="로그인하기" class="btn btn-primary btn-md">
+                  </div>
+                </div>
+              </form>
+            </div>
+            <!---------------------로그인 끝 ------------------->
+    <!------------------------- 회원가입, 파이어베이스 div-------------------------------------->
+            <div class="col-md-8">
+              <h2 class=" mb-5 heading">회원가입</h2>
               <form action="#">
                 <div class="row form-group">
                   <div class="col-md-6 mb-3 mb-md-0">
@@ -88,54 +108,30 @@
                 </div>
 
                 <div class="row form-group">
-
                   <div class="col-md-12">
-                    <label class="" for="email">Email</label> 
-                    <input type="email" id="email" class="form-control">
+                    <label class="" for="signUpEmail">Email</label> 
+                    <input type="email" id="signUpEmail" class="form-control">
+                  </div>
+
+                  <div class="col-md-6">
+                    <label class="" for="signUpPassword">password</label> 
+                    <input type="password" id="signUpPassword" class="form-control">
                   </div>
                 </div>
 
-                <div class="row form-group">
-
-                  <div class="col-md-12">
-                    <label class="" for="subject">Subject</label> 
-                    <input type="subject" id="subject" class="form-control">
-                  </div>
-                </div>
-
-                <div class="row form-group mb-5">
-                  <div class="col-md-12">
-                    <label class="" for="message">Message</label> 
-                    <textarea name="message" id="message" cols="30" rows="7" class="form-control"></textarea>
-                  </div>
-                </div>
 
                 <div class="row form-group">
                   <div class="col-md-12">
-                    <input type="submit" value="Send Message" class="btn btn-primary btn-md">
+                    <input type="submit" id="signUpButton" value="회원가입하기" class="btn btn-primary btn-md">
                   </div>
                 </div>
-                <!----------------------- form태그 서버에 요청 -------------------------->
-    <form> 
-        <h1>회원가입</h1>
-        <div> email : <input type="email" id="signUpEmail"> </div>
-        <div> password : <input type="password" id="signUpPassword"> </div>
-        <button type="submit" id="signUpButton">회원가입</button>
-        <button>로그인</button>
-     </form>
-
-     <form> 
-        <h1>로그인</h1>
-        <div> email : <input type="email" id="signUpEmail"> </div>
-        <div> password : <input type="password" id="signUpPassword"> </div>
-        <button type="submit" id="signUpButton">로그인 하기</button>
-        <button>로그인 하러 가기</button>
-     </form>
+      
+    <!----------------------- 파이어베이스 회원가입 스크립트-------------------------->
 
      <script type="module">
         // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
       
@@ -144,6 +140,7 @@
         const firebaseConfig = {
           apiKey: "AIzaSyCdW0EAl858-vKTicPvwvXFGH9bGhV5Tn4",
           authDomain: "animal-93604.firebaseapp.com",
+          databaseURL: "https://animal-93604-default-rtdb.firebaseio.com",
           projectId: "animal-93604",
           storageBucket: "animal-93604.appspot.com",
           messagingSenderId: "283355169649",
@@ -155,32 +152,53 @@
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
         
-        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
+
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+        const auth = getAuth();
 
         document.getElementById('signUpButton').addEventListener('click', (event) =>{
-            event.preventDefault()
-            const email = document.getElementById('signUpEmail').value
-            const password = document.getElementById('signUpPassword').value
-            const auth = getAuth();
-            createUserWithEmailAndPassword(auth, email, password)
+            event.preventDefault()        
+            const signUpEmail = document.getElementById('signUpEmail').value
+            const signUpPassword = document.getElementById('signUpPassword').value
+            console.log(1)
+            createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
                 .then((userCredential) => {
                     console.log(userCredential)
                     // Signed in
                     const user = userCredential.user;
+                    alert('회원가입 완료')
                     // ...
                 })
                 .catch((error) => {
                     console.log('error')
+                    alert('회원가입 실패')
                     const errorCode = error.code;
                     const errorMessage = error.message;
                     // ..
                 });
         })
-        
+
+        document.getElementById('signInButton').addEventListener('click', (event) => {
+          event.preventDefault() 
+          const signInEmail = document.getElementById('signInEmail').value
+          const signInPassword = document.getElementById('signInPassword').value
+          signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+          .then((userCredential) => {
+            alert('로그인 성공')
+            const user = userCredential.user;
+            // ...
+          })
+          .catch((error) => {
+            alert('로그인 실패')
+            const errorCode = error.code;
+            const errorMessage = error.message;
+          });
+
+        })
         
         console.log(app)
       </script>
-      <!----------------------- 로그인 -------------------------->
+      <!----------------------- 로그인 스크립트-------------------------->
             </div>
           </div>
         </div>
