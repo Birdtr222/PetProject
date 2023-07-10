@@ -76,8 +76,8 @@
                 </div>
                 <div class="row form-group mb-5">
                   <div class="col-md-12">
-                    <label class="" for="message">글쓰기</label> 
-                    <textarea name="message" id="message" cols="30" rows="7" class="form-control"></textarea>
+                    <label class="" for="messagetest">글쓰기</label> 
+                    <textarea name="message" id="messagetest" cols="30" rows="7" class="form-control"></textarea>
                   </div>
                 </div>
 
@@ -99,26 +99,13 @@
         <div class="col-md-8">
           <h2 class=" mb-5 heading">글 목록</h2>
           <form action="#">
-            <div class="row form-group">
-              <div class="col-md-6 mb-3 mb-md-0">
-                <label class="" for="fname2">제목</label>
-                <div type="text" id="fname2" class="form-control">
-                    호호호
-                </div>
-              </div>
-            </div>
-            <div class="row form-group mb-5">
-              <div class="col-md-12">
-                <label class="" for="message">글쓰기</label> 
-                <div name="message" id="messages" cols="30" rows="7" class="form-control"></div>
-              </div>
-            </div>
-          </form>
-          파이어베이스 실시간으로 웹페이지 연동하기 </br>
-          Firebase + Realtime + Web 
-          <p id="demo">흐헤헤ㅔ</p>
-          <pre id="object">테스트 입니다.</pre>
-          <button type="button" onclick="myFunction()">데이터 쓰기</button>
+            <form id="messageForm">
+              <input type="text" id="name" placeholder="이름">
+              <textarea id="message" placeholder="게시물 내용"></textarea>
+              <button type="submit">게시하기</button>
+            </form>
+            
+            
         </div>
       </div>
     </div>
@@ -149,28 +136,67 @@
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const analytics = getAnalytics(app);
-        
-        var demo = document.getElementById("demo");
-        var preObject = document.getElementById("object");
-        var dbRef = firebase.database().ref().child("object");
-            dbRef.on('value',snap => demo.innerHTML = snap.val());
-            dbRef.on('value',snap => {
-                preObject.innerText = JSON.stringify(snap.val(),null,3);
-            });
 
         import { initializeApp } from "firebase/app";
 
       </script>
+
+      <!-- 게시판 가져오는 스크립트 -->
       <script>
-        function myFunction() {
-            document.getElementById("demo").innerHTML = "흐헤헤";
-            alert("쓰기 완료");
-            
-            //firebase에 쓰기
-            var dbRefObject = firebase.database().ref();
-            dbRefObject.child("object").set("Some Value");
+        const database = firebase.database();
+        const messagesRef = database.ref('messages');
+
+        //게시판 데이터 가져오기
+        messagesRef.on('value', function(snapshot) {
+          const messages = snapshot.val();
+
+        // 게시물 목록을 생성하여 HTML에 추가
+        var messagesList = document.getElementById('messagesList');
+        messagesList.innerHTML = ''; // 기존 목록 초기화
+
+        for (var key in messages) {
+          if (messages.hasOwnProperty(key)) {
+            var messageData = messages[key];
+            var name = messageData.name;
+            var message = messageData.message;
+
+            // 게시물 요소 생성
+            var messageElement = document.createElement('li');
+            messageElement.innerHTML = '<strong>' + name + '</strong>: ' + message;
+
+            // 게시물 목록에 추가
+            messagesList.appendChild(messageElement);
+          }
         }
-    </script>
+      });
+      </script>
+
+      <script>
+        var messageForm = document.getElementById('messageForm');
+        messageForm.addEventListener('submit', submitForm);
+
+        // 게시물 폼 제출 처리
+        function submitForm(e) {
+          e.preventDefault();
+          var name = document.getElementById('name').value;
+          var message = document.getElementById('message').value;
+
+          saveMessage(name, message);
+
+          // 폼 초기화
+          messageForm.reset();
+        }
+
+        // 게시물을 Firebase에 저장
+        function saveMessage(name, message) {
+          var newMessageRef = messagesRef.push();
+          newMessageRef.set({
+            name: name,
+            message: message
+          });
+        }
+      </script>
+
      <!----------------------- CSS 스크립트 -------------------------->
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/jquery-migrate-3.0.1.min.js"></script>
@@ -185,7 +211,8 @@
     <script src="js/aos.js"></script>
     <script src="js/lozad.min.js"></script>
     <script src="js/vaccin.js"></script>
-  
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
     <script src="js/jquery.fancybox.min.js"></script>
   
     <script src="js/main.js"></script>
