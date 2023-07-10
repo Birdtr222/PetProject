@@ -58,19 +58,14 @@
 
       <div class="main-menu">
         <ul class="js-clone-nav">
-          <li><a href="#section-home" class="nav-link">Home</a></li>
+          <li><a href="section_home.html" class="nav-link">Home</a></li>
           <li><a href="#section-photos" class="nav-link">Photos</a></li>
-          <li><a href="#section-about" class="nav-link">웹 사이트 소개</a></li>
-          <li><a href="#section-testimonial" class="nav-link">ADD 카테고리 이름 보이지롱</a></li>
+          <li><a href="map.html" class="nav-link">지도</a></li>
+          <li><a href="adver.html" class="nav-link">ADV</a></li>
           <li><a href="#section-blog" class="nav-link">Blog</a></li>
-          <li><a href="#section-contact" class="nav-link">Contact</a></li>
-          <li><a href="#section-vaccine" class="nav-link">예방접종 정보</a></li>
-        </ul>
-        <ul class="social js-clone-nav">
-          <li><a href="#"><span class="icon-instagram"></span></a></li>
-          <li><a href="#"><span class="icon-facebook"></span></a></li>
-          <li><a href="#"><span class="icon-twitter"></span></a></li>
-          <li><a href="#"><span class="icon-linkedin"></span></a></li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="getMember.html" class="nav-link">회원가입</a></li>
+          <li><a href="VaccineInfo.html" class="nav-link">예방접종 정보</a></li>
         </ul>
       </div>
     </header> 
