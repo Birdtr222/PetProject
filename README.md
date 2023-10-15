@@ -4,9 +4,12 @@
 ---------------------------------
 - 실행 동영상
 
-<div>
+시연 영상
+----
+<br>
 https://github.com/Birdtr222/PetProject/assets/97228414/f57054f2-7b2b-47f6-9efa-7212f82e84dc
-</div>
+</br>
+
 
 개발툴
 ------
@@ -14,5 +17,5 @@ https://github.com/Birdtr222/PetProject/assets/97228414/f57054f2-7b2b-47f6-9efa-
 <img src="https://img.shields.io/badge/html-E34F26?style=for-the-badge&logo=html&logoColor=white">
 <img src="https://img.shields.io/badge/css3-1572B6?style=for-the-badge&logo=css3&logoColor=white">
 <img src="https://img.shields.io/badge/firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=white">
-<img src="https://img.shields.io/badge/kakaoAPI FFCD00?style=for-the-badge&logo=kakao&logoColor=white">
+<img src="https://img.shields.io/badge/API kakao-FFCD00?style=for-the-badge&logo=kakao&logoColor=white">
 </div>
